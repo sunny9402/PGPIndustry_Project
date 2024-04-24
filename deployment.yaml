@@ -1,0 +1,66 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pgpindustry-svc
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  selector:
+    app: pgpindustry
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgpindustry-dep
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pgpindustry 
+  template:
+    metadata:
+      labels:
+        app: pgpindustry
+        version: pgpindustry-version-1
+    spec:
+      nodeSelector:
+        application_name: pgpproject
+        namespace: sunnypgp
+      containers:
+      - name: pgpindustry-version-1
+        image: docker_image
+        env:
+            - name: TZ
+        imagePullPolicy: Always
+        resources:
+          requests: 
+            memory: "768Mi"
+            cpu: "0.5"
+          limits: 
+            memory: "1024Mi"
+            cpu: "0.75"
+      terminationGracePeriodSeconds: 500
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: pgpindustry-dep
+  namespace: sunnypgp
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: pgpindustry-dep  
+  minReplicas: 2
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
