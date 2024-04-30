@@ -36,11 +36,11 @@ spec:
         imagePullPolicy: Always
         resources:
           requests: 
+            memory: "512Mi"
+            cpu: "0.25"
+          limits: 
             memory: "768Mi"
             cpu: "0.5"
-          limits: 
-            memory: "1024Mi"
-            cpu: "0.75"
       terminationGracePeriodSeconds: 500
 ---
 apiVersion: autoscaling/v1
