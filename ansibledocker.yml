@@ -1,0 +1,29 @@
+---
+- name: Docker build,tag,  login, and push
+  hosts: localhost
+  gather_facts: false
+  vars:
+    docker_registry_username: "ssunnysingh"
+    docker_registry_password: "Sunny9402@"
+    docker_image_name: "sunnypgpansible"
+    docker_image_tag: "latest"
+  tasks:
+    - name: Docker build
+      shell: "docker build -t {{ docker_image_name }}:{{ docker_image_tag }} ."
+      register: docker_build_output
+      changed_when: false
+
+    - name: Docker tag
+      shell: "docker tag {{ docker_image_name }}:{{ docker_image_tag }} ssunnysingh/pgpedureka:sunnypgpproject"
+      register: docker_login_output
+      changed_when: false
+
+    - name: Docker login
+      shell: "docker login -u {{ docker_registry_username }} -p {{ docker_registry_password }}"
+      register: docker_login_output
+      changed_when: false
+
+    - name: Docker push
+      shell: "docker push ssunnysingh/pgpedureka:sunnypgpproject"
+      register: docker_push_output
+      changed_when: false
