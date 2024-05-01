@@ -26,7 +26,7 @@ agent any
 	    stage("kube Deploy"){
 	        steps{
 	            script{
-	                kubeconfig(credentialsId: 'k8sec', serverUrl: '') {
+	                kubeconfig(credentialsId: 'k8sec2', serverUrl: '') {
     sh 'ansible-playbook ansiblekubedeploy.yml'
 }
 	                
