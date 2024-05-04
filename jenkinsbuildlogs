@@ -1,0 +1,274 @@
+Started by user Sunny
+Obtained Jenkinsfile from git https://github.com/sunny9402/PGPIndustry_Project.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/PGPPipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/PGPPipeline/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/sunny9402/PGPIndustry_Project.git # timeout=10
+Fetching upstream changes from https://github.com/sunny9402/PGPIndustry_Project.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.17.1'
+ > git fetch --tags --progress -- https://github.com/sunny9402/PGPIndustry_Project.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision b6fc66575dcc9cef563a386f0e2dfb846bc58760 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f b6fc66575dcc9cef563a386f0e2dfb846bc58760 # timeout=10
+Commit message: "Update Jenkinsfile"
+ > git rev-list --no-walk cd87d3f39c3199623d3d327a32e749ac5480892f # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/PGPPipeline/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/sunny9402/PGPIndustry_Project.git # timeout=10
+Fetching upstream changes from https://github.com/sunny9402/PGPIndustry_Project.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.17.1'
+ > git fetch --tags --progress -- https://github.com/sunny9402/PGPIndustry_Project.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision b6fc66575dcc9cef563a386f0e2dfb846bc58760 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f b6fc66575dcc9cef563a386f0e2dfb846bc58760 # timeout=10
+Commit message: "Update Jenkinsfile"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (MavenBuild)
+[Pipeline] sh
++ mvn -B clean compile install package --file pom.xml
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:/usr/share/maven/lib/guice.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.abc:ABCtechnologies >-----------------------
+[INFO] Building RetailModule 1.0
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ ABCtechnologies ---
+[INFO] Deleting /var/lib/jenkins/workspace/PGPPipeline/target
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.6:prepare-agent (jacoco-initialize) @ ABCtechnologies ---
+[INFO] argLine set to -javaagent:/var/lib/jenkins/.m2/repository/org/jacoco/org.jacoco.agent/0.8.6/org.jacoco.agent-0.8.6-runtime.jar=destfile=/var/lib/jenkins/workspace/PGPPipeline/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ ABCtechnologies ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/PGPPipeline/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ ABCtechnologies ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /var/lib/jenkins/workspace/PGPPipeline/target/classes
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.6:prepare-agent (jacoco-initialize) @ ABCtechnologies ---
+[INFO] argLine set to -javaagent:/var/lib/jenkins/.m2/repository/org/jacoco/org.jacoco.agent/0.8.6/org.jacoco.agent-0.8.6-runtime.jar=destfile=/var/lib/jenkins/workspace/PGPPipeline/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ ABCtechnologies ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/PGPPipeline/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ ABCtechnologies ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ ABCtechnologies ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/PGPPipeline/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ ABCtechnologies ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /var/lib/jenkins/workspace/PGPPipeline/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ ABCtechnologies ---
+[INFO] Surefire report directory: /var/lib/jenkins/workspace/PGPPipeline/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.abc.dataAccessObject.ProductImpTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.15 sec
+
+Results :
+
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-war-plugin:3.2.2:war (default-war) @ ABCtechnologies ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [ABCtechnologies] in [/var/lib/jenkins/workspace/PGPPipeline/target/ABCtechnologies-1.0]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/var/lib/jenkins/workspace/PGPPipeline/src/main/webapp]
+[INFO] Webapp assembled in [253 msecs]
+[INFO] Building war: /var/lib/jenkins/workspace/PGPPipeline/target/ABCtechnologies-1.0.war
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.6:report (jacoco-site) @ ABCtechnologies ---
+[INFO] Loading execution data file /var/lib/jenkins/workspace/PGPPipeline/target/jacoco.exec
+[INFO] Analyzed bundle 'RetailModule' with 2 classes
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ ABCtechnologies ---
+[INFO] Installing /var/lib/jenkins/workspace/PGPPipeline/target/ABCtechnologies-1.0.war to /var/lib/jenkins/.m2/repository/com/abc/ABCtechnologies/1.0/ABCtechnologies-1.0.war
+[INFO] Installing /var/lib/jenkins/workspace/PGPPipeline/pom.xml to /var/lib/jenkins/.m2/repository/com/abc/ABCtechnologies/1.0/ABCtechnologies-1.0.pom
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.6:prepare-agent (jacoco-initialize) @ ABCtechnologies ---
+[INFO] argLine set to -javaagent:/var/lib/jenkins/.m2/repository/org/jacoco/org.jacoco.agent/0.8.6/org.jacoco.agent-0.8.6-runtime.jar=destfile=/var/lib/jenkins/workspace/PGPPipeline/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ ABCtechnologies ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/PGPPipeline/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ ABCtechnologies ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ ABCtechnologies ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/PGPPipeline/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ ABCtechnologies ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ ABCtechnologies ---
+[INFO] Skipping execution of surefire because it has already been run for this configuration
+[INFO] 
+[INFO] --- maven-war-plugin:3.2.2:war (default-war) @ ABCtechnologies ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [ABCtechnologies] in [/var/lib/jenkins/workspace/PGPPipeline/target/ABCtechnologies-1.0]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/var/lib/jenkins/workspace/PGPPipeline/src/main/webapp]
+[INFO] Webapp assembled in [81 msecs]
+[INFO] Building war: /var/lib/jenkins/workspace/PGPPipeline/target/ABCtechnologies-1.0.war
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.6:report (jacoco-site) @ ABCtechnologies ---
+[INFO] Loading execution data file /var/lib/jenkins/workspace/PGPPipeline/target/jacoco.exec
+[INFO] Analyzed bundle 'RetailModule' with 2 classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  14.736 s
+[INFO] Finished at: 2024-05-01T03:40:56Z
+[INFO] ------------------------------------------------------------------------
+[Pipeline] sh
++ mvn test
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:/usr/share/maven/lib/guice.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------------------< [0;36mcom.abc:ABCtechnologies[0;1m >-----------------------[m
+[[1;34mINFO[m] [1mBuilding RetailModule 1.0[m
+[[1;34mINFO[m] [1m--------------------------------[ war ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.8.6:prepare-agent[m [1m(jacoco-initialize)[m @ [36mABCtechnologies[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/var/lib/jenkins/.m2/repository/org/jacoco/org.jacoco.agent/0.8.6/org.jacoco.agent-0.8.6-runtime.jar=destfile=/var/lib/jenkins/workspace/PGPPipeline/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mABCtechnologies[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /var/lib/jenkins/workspace/PGPPipeline/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:compile[m [1m(default-compile)[m @ [36mABCtechnologies[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mABCtechnologies[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /var/lib/jenkins/workspace/PGPPipeline/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:testCompile[m [1m(default-testCompile)[m @ [36mABCtechnologies[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.12.4:test[m [1m(default-test)[m @ [36mABCtechnologies[0;1m ---[m
+[[1;34mINFO[m] Surefire report directory: /var/lib/jenkins/workspace/PGPPipeline/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.abc.dataAccessObject.ProductImpTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.235 sec
+
+Results :
+
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  7.791 s
+[[1;34mINFO[m] Finished at: 2024-05-01T03:41:09Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (DockerAnsibleBuild)
+[Pipeline] sh
++ ansible-playbook ansibledocker.yml
+
+PLAY [Docker build,tag,  login, and push] **************************************
+
+TASK [Docker build] ************************************************************
+ok: [localhost]
+
+TASK [Docker tag] **************************************************************
+ok: [localhost]
+
+TASK [Docker login] ************************************************************
+ok: [localhost]
+
+TASK [Docker push] *************************************************************
+ok: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (kube Deploy)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] kubeconfig
+[Pipeline] {
+[Pipeline] sh
++ ansible-playbook ansiblekubedeploy.yml
+
+PLAY [localhost] ***************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [deploy SunnyPGPProject on kubernetes] ************************************
+changed: [localhost]
+
+TASK [update deployment with new pods if image updated in docker hub] **********
+changed: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[Pipeline] }
+[Pipeline] // kubeconfig
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
+
